@@ -6,20 +6,58 @@ interface IStack<T> {
   isEmpty(): boolean;
 }
 
+class Node<T> {
+  public value: T;
+  public next: Node<T> | null = null;
+
+  constructor(val: T, next?: Node<T>) {
+    this.value = val;
+    if (next) {
+      this.next = next;
+    }
+  }
+}
+
 export class Stack<T> implements IStack<T> {
-  push(item: T): void {
-    throw new Error("Method not implemented.");
+  private head: Node<T> | null;
+  private length: number;
+
+  constructor() {
+    this.head = null;
+    this.length = 0;
   }
+
+  // a -> b -> c
+  push(value: T): void {
+    let node = new Node(value);
+    if (this.head) {
+      node.next = this.head;
+      this.head = node;
+    } else {
+      this.head = node;
+    }
+    this.length++;
+  }
+
   pop(): T | undefined {
-    throw new Error("Method not implemented.");
+    if (!this.head) {
+      return undefined;
+    }
+    let val = this.head.value;
+    this.head = this.head.next;
+    this.length--;
+    return val;
   }
+
   peek(): T | undefined {
-    throw new Error("Method not implemented.");
+    return this.head?.value;
   }
+
   size(): number {
-    throw new Error("Method not implemented.");
+    return this.length;
   }
+
   isEmpty(): boolean {
-    throw new Error("Method not implemented.");
+    return this.length === 0;
   }
 }
