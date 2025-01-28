@@ -20,7 +20,7 @@ export function stringRotation(s1: string, s2: string): boolean {
     let substr2 = s2.substring(index);
     let substr1 = s1.substring(i, substr2.length);
     if (substr1 === substr2) {
-      return s1.substring(substr2.length) === s2.substring(0, index);
+      return isSubstring(s1.substring(substr2.length), s2.substring(0, index));
     }
   }
   return false;
