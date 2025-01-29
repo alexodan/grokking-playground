@@ -41,4 +41,16 @@ export class LinkedList<T> {
     this.visit((node) => values.push(node.value));
     console.log(values.join(" -> "));
   }
+
+  toArray(): T[] {
+    const values: T[] = [];
+    this.visit((node) => values.push(node.value));
+    return values;
+  }
+}
+
+export function createLinkedList(arr: number[]): LinkedList<number> {
+  const list = new LinkedList<number>();
+  arr.forEach((num) => list.push(num));
+  return list;
 }
