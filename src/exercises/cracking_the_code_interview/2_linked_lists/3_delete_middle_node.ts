@@ -1,4 +1,4 @@
-import { Node } from "./types";
+import { ListNode } from "./types";
 
 /**
  * Delete Middle Node: Implement an algorithm to delete a node in the middle (i.e., any node but the first and last node, not necessarily the exact middle) of a singly linked list, given only access to that node.
@@ -6,7 +6,7 @@ import { Node } from "./types";
  * Input: the node c from the linked list a->b->c->d->e->f
  * Result: nothing is returned, but the new linked list looks like a->b->d->e->f
  */
-export function deleteMiddleNode<T>(node: Node<T>): void {
+export function deleteMiddleNode<T>(node: ListNode<T>): void {
   let curr = node;
   let next = curr.next;
   if (!next) {

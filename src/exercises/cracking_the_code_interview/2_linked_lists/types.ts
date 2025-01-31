@@ -1,21 +1,26 @@
-export type Node<T> = {
-  next?: Node<T> | undefined;
+export class ListNode<T> {
+  next?: ListNode<T> | undefined;
   value: T;
-};
+
+  constructor(val: T, next?: ListNode<T> | undefined) {
+    this.value = val;
+    this.next = next;
+  }
+}
 
 export class LinkedList<T> {
-  head: Node<T> | undefined;
-  tail: Node<T> | undefined;
+  head: ListNode<T> | undefined;
+  tail: ListNode<T> | undefined;
   length: number;
 
-  constructor(head?: Node<T>) {
+  constructor(head?: ListNode<T>) {
     this.head = head;
     this.tail = head;
     this.length = head ? 1 : 0;
   }
 
   push(value: T) {
-    const newNode: Node<T> = { value };
+    const newNode: ListNode<T> = { value };
 
     if (!this.head) {
       this.head = newNode;
@@ -28,7 +33,7 @@ export class LinkedList<T> {
     this.length++;
   }
 
-  visit(callback: (node: Node<T>) => void) {
+  visit(callback: (node: ListNode<T>) => void) {
     let current = this.head;
     while (current) {
       callback(current);

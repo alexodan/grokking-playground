@@ -1,5 +1,5 @@
 import { describe, expect, test } from "bun:test";
-import { LinkedList, Node } from "./types";
+import { LinkedList, ListNode } from "./types";
 import { deleteMiddleNode } from "./3_delete_middle_node";
 
 describe("deleteMiddleNode", () => {
@@ -11,7 +11,7 @@ describe("deleteMiddleNode", () => {
     list.push("d");
     list.push("e");
 
-    let nodeToDelete: Node<string> | undefined = list.head;
+    let nodeToDelete: ListNode<string> | undefined = list.head;
     for (let i = 0; i < 2; i++) {
       nodeToDelete = nodeToDelete?.next;
     }
@@ -28,7 +28,7 @@ describe("deleteMiddleNode", () => {
     const values = ["a", "b", "c", "d", "e", "f", "g", "h"];
     values.forEach((v) => list.push(v));
 
-    let nodeToDelete: Node<string> | undefined = list.head;
+    let nodeToDelete: ListNode<string> | undefined = list.head;
     for (let i = 0; i < 4; i++) {
       nodeToDelete = nodeToDelete?.next;
     }
@@ -44,7 +44,7 @@ describe("deleteMiddleNode", () => {
     const list = new LinkedList<number>();
     [1, 2, 3, 4, 5].forEach((n) => list.push(n));
 
-    let nodeToDelete: Node<number> | undefined = list.head;
+    let nodeToDelete: ListNode<number> | undefined = list.head;
     for (let i = 0; i < 2; i++) {
       nodeToDelete = nodeToDelete?.next;
     }
@@ -60,7 +60,7 @@ describe("deleteMiddleNode", () => {
     const list = new LinkedList<string>();
     ["a", "b", "c", "d", "e"].forEach((v) => list.push(v));
 
-    let nodeToDelete: Node<string> | undefined = list.head;
+    let nodeToDelete: ListNode<string> | undefined = list.head;
     for (let i = 0; i < 2; i++) {
       nodeToDelete = nodeToDelete?.next;
     }
